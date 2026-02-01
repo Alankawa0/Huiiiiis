@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CyraHost Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+html { scroll-behavior:smooth; }
+body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradient(135deg, #030721, #040824); color:#fff; display:flex; flex-direction:column; align-items:center; }
+
+.container { text-align:center; max-width:1200px; padding:100px 20px 40px; width:100%; }
+.logo { font-size:3rem; font-weight:700; letter-spacing:1px; margin-bottom:15px; }
+.logo span { color:#4da3ff; }
+.subtitle { font-size:1.2rem; color:#a0b9ff; margin-bottom:50px; line-height:1.6; }
+
+.buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:100px; }
+.btn { padding:15px 50px; border-radius:12px; font-size:1rem; font-weight:600; text-decoration:none; transition:all 0.3s ease; cursor:pointer; position:relative; overflow:hidden; }
+.btn-login { background: linear-gradient(135deg,#0d2a75,#1a3f8f); color:#fff; box-shadow:0 8px 25px rgba(77,163,255,0.35); }
+.btn-login:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(77,163,255,0.55); }
+.btn-login::after { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(77,163,255,0.4) 0%, transparent 60%); opacity:0; transition:all 0.5s; }
+.btn-login:hover::after { opacity:1; }
+
+.btn-tos { border:2px solid #4da3ff; color:#4da3ff; background:transparent; }
+.btn-tos:hover { background:#4da3ff; color:#fff; }
+
+.glow1, .glow2 { position:absolute; border-radius:50%; filter:blur(180px); z-index:0; }
+.glow1 { width:700px; height:700px; background:rgba(77,163,255,0.2); top:-200px; right:-200px; }
+.glow2 { width:600px; height:600px; background:rgba(63,111,255,0.15); bottom:-150px; left:-150px; }
+
+.features { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; width:100%; padding:20px 0 80px; z-index:2; }
+.feature-box { background:#040824; border:1px solid rgba(77,163,255,0.3); border-radius:15px; padding:30px 20px; width:280px; text-align:center; cursor:pointer; transition:all 0.3s ease; position:relative; overflow:hidden; }
+.feature-box h3 { color:#4da3ff; margin-bottom:15px; font-size:1.3rem; }
+.feature-box p { font-size:0.95rem; color:#a0b9ff; line-height:1.5; }
+.feature-box::after { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(77,163,255,0.3) 0%, transparent 60%); opacity:0; transition:all 0.5s; }
+.feature-box:active::after { opacity:1; }
+
+#tos { max-width:900px; width:100%; margin:50px auto; padding:20px; background:#040824; border-radius:15px; border:1px solid rgba(77,163,255,0.4); }
+#tos h1 { color:#4da3ff; margin-bottom:20px; text-align:center; }
+#tos p.notice { text-align:center; color:#a0b9ff; margin-bottom:30px; font-style:italic; }
+
+.tos-rule { margin-bottom:10px; border-radius:10px; overflow:hidden; border:1px solid rgba(77,163,255,0.3); background:#030721; }
+.tos-rule h2 { margin:0; color:#4da3ff; cursor:pointer; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
+.tos-rule h2:hover { background:#1a3f8f; }
+.tos-rule .content { max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease; padding:0 20px; }
+.tos-rule .content p, .tos-rule .content ul, .tos-rule .content li { padding:10px 0; color:#a0b9ff; line-height:1.5; }
+
+.arrow { transition: transform 0.3s ease; font-weight:bold; }
+
+footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacity:0.8; padding:40px 0; }
+
+@media(max-width:900px){ .features{flex-direction:column; align-items:center;} }
+</style>
+</head>
+<body>
+
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<div class="container">
+    <div class="logo">Cyra<span>Host</span></div>
+    <p class="subtitle">Powerful game & app hosting powered by <strong>Jexactyl</strong>.<br>Fast servers, full control, and a clean dashboard.</p>
+
+    <div class="buttons">
+        <a href="https://cyrahost.xyz/auth/login" class="btn btn-login">Open Panel</a>
+        <a href="#tos" class="btn btn-tos">Terms of Service</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-box">
+        <h3>Fast Servers</h3>
+        <p>Optimized for low latency and high performance, ideal for game hosting.</p>
+    </div>
+    <div class="feature-box">
+        <h3>Full Control</h3>
+        <p>Manage your servers easily with Jexactyl’s clean dashboard.</p>
+    </div>
+    <div class="feature-box">
+        <h3>24/7 Support</h3>
+        <p>Our team is always ready to help you with any issues or questions.</p>
+    </div>
+</div>
+
+<!-- TERMS OF SERVICE SECTION -->
+<div id="tos">
+    <h1>Terms of Service</h1>
+    <p class="notice">By signing up, you agree to these terms.</p>
+
+    <!-- 1. Service Description -->
+    <div class="tos-rule">
+        <h2>1. Service Description <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>CyraHost provides game server and application hosting services through the Pterodactyl panel. Services are provided “as is” and “as available.” We reserve the right to modify, suspend, or discontinue any service at any time without prior notice.</p>
+        </div>
+    </div>
+
+    <!-- 2. User Responsibility -->
+    <div class="tos-rule">
+        <h2>2. User Responsibility <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>You are fully responsible for:</p>
+            <ul>
+                <li>All content hosted on your server</li>
+                <li>All actions performed using your account</li>
+                <li>Any legal consequences arising from your usage</li>
+                <li>All Purchases Are Final And There Is No Refund</li>
+            </ul>
+            <p>CyraHost does not monitor your server content in real time and is not responsible for user-hosted content.</p>
+        </div>
+    </div>
+
+    <!-- 3. Fair Use Policy -->
+    <div class="tos-rule">
+        <h2>3. Fair Use Policy (FUP) <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>Users must use resources responsibly. Prohibited behavior includes (but is not limited to):</p>
+            <ul>
+                <li>Excessive CPU, RAM, disk, or bandwidth usage that affects other users</li>
+                <li>Network flooding, DDoS attempts, or abusive processes</li>
+                <li>Running services not intended for shared hosting environments</li>
+            </ul>
+            <p>We reserve the right to limit, suspend, or terminate services that exceed fair usage.</p>
+        </div>
+    </div>
+
+    <!-- 4. Prohibited Content -->
+    <div class="tos-rule">
+        <h2>4. Prohibited Content & Activities <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>Pornography, adult, or sexually explicit material</li>
+                <li>Gambling services or betting platforms</li>
+                <li>Hate speech, violence, or extremist content</li>
+                <li>Malware, viruses, crypto-miners, or exploit tools</li>
+                <li>Fraud, phishing, scams, or deceptive services</li>
+                <li>Any activity prohibited by Islamic principles, including immoral or unethical use</li>
+            </ul>
+            <p>Hosting such content will result in immediate suspension.</p>
+        </div>
+    </div>
+
+    <!-- 5. Third-Party Terms Compliance -->
+    <div class="tos-rule">
+        <h2>5. Third-Party Terms Compliance <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>You must comply with the Terms of Service of any third-party platform you interact with, including Discord, Game publishers, API providers.</p>
+            <p><strong>Discord Selfbots & Abuse:</strong> Hosting Discord selfbots, automated user accounts, nuker bots, spam bots, or any service that violates Discord’s Terms of Service is strictly prohibited. If detected, your server will be suspended or terminated without refund.</p>
+        </div>
+    </div>
+
+    <!-- 6. Security & Abuse -->
+    <div class="tos-rule">
+        <h2>6. Security & Abuse <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>Attempt unauthorized access to any system</li>
+                <li>Exploit vulnerabilities</li>
+                <li>Interfere with other users’ services</li>
+            </ul>
+            <p>Any abuse may result in immediate termination and possible reporting to authorities if required by law.</p>
+        </div>
+    </div>
+
+    <!-- 7. Monitoring & Enforcement -->
+    <div class="tos-rule">
+        <h2>7. Monitoring & Enforcement <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>Investigate suspected violations</li>
+                <li>Suspend or terminate services without prior notice</li>
+                <li>Remove content that violates these Terms</li>
+            </ul>
+            <p>Failure to cooperate with investigations may result in termination.</p>
+        </div>
+    </div>
+
+    <!-- 8. Data & Backups -->
+    <div class="tos-rule">
+        <h2>8. Data & Backups <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>Responsible for maintaining your own backups</li>
+                <li>CyraHost is not liable for data loss, corruption, accidental deletion, hardware or software failure</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 9. Service Availability -->
+    <div class="tos-rule">
+        <h2>9. Service Availability <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>High uptime is strived for but not guaranteed</li>
+                <li>CyraHost is not responsible for downtime, data loss, business interruption, or loss of profits</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 10. Termination -->
+    <div class="tos-rule">
+        <h2>10. Termination <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <ul>
+                <li>Violation of Terms</li>
+                <li>Abuse of system resources</li>
+                <li>Hosting prohibited content</li>
+            </ul>
+            <p>Termination decisions are final.</p>
+        </div>
+    </div>
+
+    <!-- 11. Limitation of Liability -->
+    <div class="tos-rule">
+        <h2>11. Limitation of Liability <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>To the maximum extent permitted by law, CyraHost shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of our services.</p>
+        </div>
+    </div>
+
+    <!-- 12. Changes to Terms -->
+    <div class="tos-rule">
+        <h2>12. Changes to Terms <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>We may update these Terms at any time. Continued use of CyraHost after changes means you accept the updated Terms.</p>
+        </div>
+    </div>
+
+    <!-- 13. Sign up -->
+    <div class="tos-rule">
+        <h2>13. Sign up <span class="arrow">&#9660;</span></h2>
+        <div class="content">
+            <p>By Signing up on our website, you agree to follow these rules.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>© 2026 CyraHost • Powered by Jexactyl</footer>
+
+<script>
+const rules = document.querySelectorAll('.tos-rule h2');
+rules.forEach(h => {
+    h.addEventListener('click', () => {
+        const content = h.nextElementSibling;
+        const arrow = h.querySelector('.arrow');
+        if(content.style.maxHeight){
+            content.style.maxHeight = null;
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            arrow.style.transform = 'rotate(-180deg)';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
