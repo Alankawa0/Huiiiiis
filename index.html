@@ -58,13 +58,30 @@ body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradie
     opacity: 1;
     padding: 10px 20px 20px 20px;
 }
-.tos-rule .content p, .tos-rule .content ul, .tos-rule .content li { padding:10px 0; color:#a0b9ff; line-height:1.5; }
+.tos-rule .content p, 
+.tos-rule .content ul, 
+.tos-rule .content li { 
+    padding: 10px 0; 
+    color: #a0b9ff; 
+    line-height: 1.7; /* more spacing between lines */ 
+}
+.tos-rule .content ul { 
+    margin-left: 20px; /* space before bullets */ 
+}
+.tos-rule .content li { 
+    margin-left: 15px; /* indent bullet a little to the right */ 
+    list-style-position: inside; 
+}
 
 .arrow { transition: transform 0.3s ease; font-weight:bold; }
 
 footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacity:0.8; padding:40px 0; }
 
-@media(max-width:900px){ .features{flex-direction:column; align-items:center;} .navbar { padding:0 20px;} .navbar .nav-buttons a { margin-left:10px; margin-top:5px; display:inline-block;} }
+@media(max-width:900px){ 
+    .features{flex-direction:column; align-items:center;} 
+    .navbar { padding:0 20px;} 
+    .navbar .nav-buttons a { margin-left:10px; margin-top:5px; display:inline-block;} 
+}
 </style>
 </head>
 <body>
