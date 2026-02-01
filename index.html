@@ -44,8 +44,8 @@ body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradie
 .tos-rule { margin-bottom:10px; border-radius:10px; overflow:hidden; border:1px solid rgba(77,163,255,0.3); background:#030721; }
 .tos-rule h2 { margin:0; color:#4da3ff; cursor:pointer; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
 .tos-rule h2:hover { background:#1a3f8f; }
-.tos-rule .content { max-height:0; overflow:hidden; transition:max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease; padding:0 20px; opacity:0; }
-.tos-rule .content.show { opacity:1; }
+.tos-rule .content { max-height:0; overflow:hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scaleY(0); transform-origin: top; opacity:0; padding:0 20px; }
+.tos-rule .content.show { opacity:1; transform: scaleY(1); padding:10px 20px 20px 20px; }
 .tos-rule .content p, .tos-rule .content ul, .tos-rule .content li { padding:10px 0; color:#a0b9ff; line-height:1.5; }
 
 .arrow { transition: transform 0.3s ease; font-weight:bold; }
@@ -95,7 +95,7 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
     <h1>Terms of Service</h1>
     <p class="notice">By signing up, you agree to these terms.</p>
 
-    <!-- 1. Service Description -->
+    <!-- All 13 TOS rules -->
     <div class="tos-rule">
         <h2>1. Service Description <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -103,7 +103,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 2. User Responsibility -->
     <div class="tos-rule">
         <h2>2. User Responsibility <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -117,7 +116,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 3. Fair Use Policy -->
     <div class="tos-rule">
         <h2>3. Fair Use Policy (FUP) <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -130,7 +128,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 4. Prohibited Content & Activities -->
     <div class="tos-rule">
         <h2>4. Prohibited Content & Activities <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -146,11 +143,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 5. Third-Party Terms Compliance -->
     <div class="tos-rule">
         <h2>5. Third-Party Terms Compliance <span class="arrow">&#9660;</span></h2>
         <div class="content">
-            <p>You must comply with the Terms of Service of any third-party platform you interact with. This includes, but is not limited to:</p>
             <ul>
                 <li>Discord</li>
                 <li>Game publishers</li>
@@ -160,20 +155,18 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 6. Security & Abuse -->
     <div class="tos-rule">
         <h2>6. Security & Abuse <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <ul>
-                <li>Attempting unauthorized access to any system</li>
-                <li>Exploiting vulnerabilities</li>
-                <li>Interfering with other users’ services</li>
+                <li>Attempt unauthorized access to any system</li>
+                <li>Exploit vulnerabilities</li>
+                <li>Interfere with other users’ services</li>
             </ul>
             <p>Any abuse may result in immediate termination and possible reporting to authorities if required by law.</p>
         </div>
     </div>
 
-    <!-- 7. Monitoring & Enforcement -->
     <div class="tos-rule">
         <h2>7. Monitoring & Enforcement <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -186,7 +179,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 8. Data & Backups -->
     <div class="tos-rule">
         <h2>8. Data & Backups <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -197,7 +189,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 9. Service Availability -->
     <div class="tos-rule">
         <h2>9. Service Availability <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -208,7 +199,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 10. Termination -->
     <div class="tos-rule">
         <h2>10. Termination <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -221,7 +211,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 11. Limitation of Liability -->
     <div class="tos-rule">
         <h2>11. Limitation of Liability <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -229,7 +218,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 12. Changes to Terms -->
     <div class="tos-rule">
         <h2>12. Changes to Terms <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -237,14 +225,12 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 13. Sign up -->
     <div class="tos-rule">
         <h2>13. Sign Up <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <p>By signing up on our website, you agree to follow all rules and Terms of Service.</p>
         </div>
     </div>
-
 </div>
 
 <footer>© 2026 CyraHost • Powered by Jexactyl</footer>
@@ -255,12 +241,20 @@ rules.forEach(h => {
     h.addEventListener('click', () => {
         const content = h.nextElementSibling;
         const arrow = h.querySelector('.arrow');
-        if(content.style.maxHeight){
-            content.style.maxHeight = null;
+        const isOpen = content.classList.contains('show');
+
+        // Close other open
+        document.querySelectorAll('.tos-rule .content.show').forEach(c => {
+            if(c !== content){
+                c.classList.remove('show');
+                c.previousElementSibling.querySelector('.arrow').style.transform = 'rotate(0deg)';
+            }
+        });
+
+        if(isOpen){
             content.classList.remove('show');
             arrow.style.transform = 'rotate(0deg)';
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
             content.classList.add('show');
             arrow.style.transform = 'rotate(-180deg)';
         }
