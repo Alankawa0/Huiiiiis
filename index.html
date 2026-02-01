@@ -10,7 +10,7 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
 html { scroll-behavior:smooth; }
-body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradient(135deg, #030721, #040824); color:#fff; }
+body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradient(135deg, #020318, #030721); color:#fff; }
 
 .navbar { position:fixed; top:0; left:0; width:100%; height:70px; background:#040824; display:flex; justify-content:space-between; align-items:center; padding:0 50px; z-index:1000; border-bottom:1px solid rgba(77,163,255,0.3); }
 .navbar .logo { font-size:1.8rem; font-weight:700; }
@@ -44,8 +44,18 @@ body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradie
 .tos-rule { margin-bottom:10px; border-radius:10px; overflow:hidden; border:1px solid rgba(77,163,255,0.3); background:#030721; }
 .tos-rule h2 { margin:0; color:#4da3ff; cursor:pointer; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
 .tos-rule h2:hover { background:#1a3f8f; }
-.tos-rule .content { max-height:0; overflow:hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: scaleY(0); transform-origin: top; opacity:0; padding:0 20px; }
-.tos-rule .content.show { opacity:1; transform: scaleY(1); padding:10px 20px 20px 20px; }
+
+.tos-rule .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    opacity: 0;
+    padding: 0 20px;
+}
+.tos-rule .content.show {
+    opacity: 1;
+    padding: 10px 20px 20px 20px;
+}
 .tos-rule .content p, .tos-rule .content ul, .tos-rule .content li { padding:10px 0; color:#a0b9ff; line-height:1.5; }
 
 .arrow { transition: transform 0.3s ease; font-weight:bold; }
@@ -243,19 +253,22 @@ rules.forEach(h => {
         const arrow = h.querySelector('.arrow');
         const isOpen = content.classList.contains('show');
 
-        // Close other open
+        // Close other open rules
         document.querySelectorAll('.tos-rule .content.show').forEach(c => {
             if(c !== content){
+                c.style.maxHeight = null;
                 c.classList.remove('show');
                 c.previousElementSibling.querySelector('.arrow').style.transform = 'rotate(0deg)';
             }
         });
 
         if(isOpen){
+            content.style.maxHeight = null;
             content.classList.remove('show');
             arrow.style.transform = 'rotate(0deg)';
         } else {
             content.classList.add('show');
+            content.style.maxHeight = content.scrollHeight + "px";
             arrow.style.transform = 'rotate(-180deg)';
         }
     });
