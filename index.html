@@ -10,22 +10,21 @@
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
 html { scroll-behavior:smooth; }
-body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradient(135deg, #030721, #040824); color:#fff; display:flex; flex-direction:column; align-items:center; }
+body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradient(135deg, #030721, #040824); color:#fff; }
 
-.container { text-align:center; max-width:1200px; padding:100px 20px 40px; width:100%; }
-.logo { font-size:3rem; font-weight:700; letter-spacing:1px; margin-bottom:15px; }
-.logo span { color:#4da3ff; }
-.subtitle { font-size:1.2rem; color:#a0b9ff; margin-bottom:50px; line-height:1.6; }
+.navbar { position:fixed; top:0; left:0; width:100%; height:70px; background:#040824; display:flex; justify-content:space-between; align-items:center; padding:0 50px; z-index:1000; border-bottom:1px solid rgba(77,163,255,0.3); }
+.navbar .logo { font-size:1.8rem; font-weight:700; }
+.navbar .logo span { color:#4da3ff; }
+.navbar .nav-buttons a { margin-left:20px; text-decoration:none; padding:10px 25px; border-radius:10px; font-weight:600; transition:0.3s; }
+.navbar .nav-buttons .btn-login { background: linear-gradient(135deg,#0d2a75,#1a3f8f); color:#fff; }
+.navbar .nav-buttons .btn-login:hover { transform:translateY(-2px); }
+.navbar .nav-buttons .btn-tos { border:2px solid #4da3ff; color:#4da3ff; background:transparent; }
+.navbar .nav-buttons .btn-tos:hover { background:#4da3ff; color:#fff; }
 
-.buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:100px; }
-.btn { padding:15px 50px; border-radius:12px; font-size:1rem; font-weight:600; text-decoration:none; transition:all 0.3s ease; cursor:pointer; position:relative; overflow:hidden; }
-.btn-login { background: linear-gradient(135deg,#0d2a75,#1a3f8f); color:#fff; box-shadow:0 8px 25px rgba(77,163,255,0.35); }
-.btn-login:hover { transform:translateY(-4px); box-shadow:0 15px 40px rgba(77,163,255,0.55); }
-.btn-login::after { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(77,163,255,0.4) 0%, transparent 60%); opacity:0; transition:all 0.5s; }
-.btn-login:hover::after { opacity:1; }
-
-.btn-tos { border:2px solid #4da3ff; color:#4da3ff; background:transparent; }
-.btn-tos:hover { background:#4da3ff; color:#fff; }
+.container { text-align:center; max-width:1200px; padding:120px 20px 40px; width:100%; }
+.container .title { font-size:3rem; font-weight:700; letter-spacing:1px; margin-bottom:15px; }
+.container .title span { color:#4da3ff; }
+.container .subtitle { font-size:1.2rem; color:#a0b9ff; margin-bottom:50px; line-height:1.6; }
 
 .glow1, .glow2 { position:absolute; border-radius:50%; filter:blur(180px); z-index:0; }
 .glow1 { width:700px; height:700px; background:rgba(77,163,255,0.2); top:-200px; right:-200px; }
@@ -38,36 +37,40 @@ body { width:100%; min-height:100%; overflow-x:hidden; background: linear-gradie
 .feature-box::after { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(77,163,255,0.3) 0%, transparent 60%); opacity:0; transition:all 0.5s; }
 .feature-box:active::after { opacity:1; }
 
-#tos { max-width:900px; width:100%; margin:50px auto; padding:20px; background:#040824; border-radius:15px; border:1px solid rgba(77,163,255,0.4); }
+#tos { max-width:900px; width:100%; margin:50px auto 100px; padding:20px; background:#040824; border-radius:15px; border:1px solid rgba(77,163,255,0.4); }
 #tos h1 { color:#4da3ff; margin-bottom:20px; text-align:center; }
 #tos p.notice { text-align:center; color:#a0b9ff; margin-bottom:30px; font-style:italic; }
 
 .tos-rule { margin-bottom:10px; border-radius:10px; overflow:hidden; border:1px solid rgba(77,163,255,0.3); background:#030721; }
 .tos-rule h2 { margin:0; color:#4da3ff; cursor:pointer; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
 .tos-rule h2:hover { background:#1a3f8f; }
-.tos-rule .content { max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease; padding:0 20px; }
+.tos-rule .content { max-height:0; overflow:hidden; transition:max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease; padding:0 20px; opacity:0; }
+.tos-rule .content.show { opacity:1; }
 .tos-rule .content p, .tos-rule .content ul, .tos-rule .content li { padding:10px 0; color:#a0b9ff; line-height:1.5; }
 
 .arrow { transition: transform 0.3s ease; font-weight:bold; }
 
 footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacity:0.8; padding:40px 0; }
 
-@media(max-width:900px){ .features{flex-direction:column; align-items:center;} }
+@media(max-width:900px){ .features{flex-direction:column; align-items:center;} .navbar { padding:0 20px;} }
 </style>
 </head>
 <body>
+
+<div class="navbar">
+    <div class="logo">Cyra<span>Host</span></div>
+    <div class="nav-buttons">
+        <a href="https://cyrahost.xyz/auth/login" class="btn-login">Open Panel</a>
+        <a href="#tos" class="btn-tos">Terms of Service</a>
+    </div>
+</div>
 
 <div class="glow1"></div>
 <div class="glow2"></div>
 
 <div class="container">
-    <div class="logo">Cyra<span>Host</span></div>
+    <div class="title">Cyra<span>Host</span></div>
     <p class="subtitle">Powerful game & app hosting powered by <strong>Jexactyl</strong>.<br>Fast servers, full control, and a clean dashboard.</p>
-
-    <div class="buttons">
-        <a href="https://cyrahost.xyz/auth/login" class="btn btn-login">Open Panel</a>
-        <a href="#tos" class="btn btn-tos">Terms of Service</a>
-    </div>
 </div>
 
 <div class="features">
@@ -79,10 +82,12 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         <h3>Full Control</h3>
         <p>Manage your servers easily with Jexactyl’s clean dashboard.</p>
     </div>
-    <div class="feature-box">
-        <h3>24/7 Support</h3>
-        <p>Our team is always ready to help you with any issues or questions.</p>
-    </div>
+    <a href="https://discord.gg/cyra" target="_blank" style="text-decoration:none;">
+        <div class="feature-box">
+            <h3>24/7 Support</h3>
+            <p>Join our Discord server for instant support and assistance: <strong>discord.gg/cyra</strong></p>
+        </div>
+    </a>
 </div>
 
 <!-- TERMS OF SERVICE SECTION -->
@@ -102,7 +107,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
     <div class="tos-rule">
         <h2>2. User Responsibility <span class="arrow">&#9660;</span></h2>
         <div class="content">
-            <p>You are fully responsible for:</p>
             <ul>
                 <li>All content hosted on your server</li>
                 <li>All actions performed using your account</li>
@@ -117,7 +121,6 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
     <div class="tos-rule">
         <h2>3. Fair Use Policy (FUP) <span class="arrow">&#9660;</span></h2>
         <div class="content">
-            <p>Users must use resources responsibly. Prohibited behavior includes (but is not limited to):</p>
             <ul>
                 <li>Excessive CPU, RAM, disk, or bandwidth usage that affects other users</li>
                 <li>Network flooding, DDoS attempts, or abusive processes</li>
@@ -127,7 +130,7 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         </div>
     </div>
 
-    <!-- 4. Prohibited Content -->
+    <!-- 4. Prohibited Content & Activities -->
     <div class="tos-rule">
         <h2>4. Prohibited Content & Activities <span class="arrow">&#9660;</span></h2>
         <div class="content">
@@ -147,8 +150,13 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
     <div class="tos-rule">
         <h2>5. Third-Party Terms Compliance <span class="arrow">&#9660;</span></h2>
         <div class="content">
-            <p>You must comply with the Terms of Service of any third-party platform you interact with, including Discord, Game publishers, API providers.</p>
-            <p><strong>Discord Selfbots & Abuse:</strong> Hosting Discord selfbots, automated user accounts, nuker bots, spam bots, or any service that violates Discord’s Terms of Service is strictly prohibited. If detected, your server will be suspended or terminated without refund.</p>
+            <p>You must comply with the Terms of Service of any third-party platform you interact with. This includes, but is not limited to:</p>
+            <ul>
+                <li>Discord</li>
+                <li>Game publishers</li>
+                <li>API providers</li>
+            </ul>
+            <p>Hosting Discord selfbots, automated accounts, nuker bots, spam bots, or any service violating Discord’s TOS is strictly prohibited. If detected, your server may be suspended or terminated without refund.</p>
         </div>
     </div>
 
@@ -157,9 +165,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         <h2>6. Security & Abuse <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <ul>
-                <li>Attempt unauthorized access to any system</li>
-                <li>Exploit vulnerabilities</li>
-                <li>Interfere with other users’ services</li>
+                <li>Attempting unauthorized access to any system</li>
+                <li>Exploiting vulnerabilities</li>
+                <li>Interfering with other users’ services</li>
             </ul>
             <p>Any abuse may result in immediate termination and possible reporting to authorities if required by law.</p>
         </div>
@@ -183,9 +191,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         <h2>8. Data & Backups <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <ul>
-                <li>Responsible for maintaining your own backups</li>
-                <li>CyraHost is not liable for data loss, corruption, accidental deletion, hardware or software failure</li>
+                <li>You are responsible for maintaining your own backups</li>
             </ul>
+            <p>CyraHost is not liable for data loss, corruption, accidental deletion, or hardware/software failure.</p>
         </div>
     </div>
 
@@ -194,9 +202,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         <h2>9. Service Availability <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <ul>
-                <li>High uptime is strived for but not guaranteed</li>
-                <li>CyraHost is not responsible for downtime, data loss, business interruption, or loss of profits</li>
+                <li>We strive for high uptime but do not guarantee uninterrupted service</li>
             </ul>
+            <p>CyraHost is not responsible for downtime, data loss, business interruption, or loss of profits.</p>
         </div>
     </div>
 
@@ -205,9 +213,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
         <h2>10. Termination <span class="arrow">&#9660;</span></h2>
         <div class="content">
             <ul>
-                <li>Violation of Terms</li>
-                <li>Abuse of system resources</li>
-                <li>Hosting prohibited content</li>
+                <li>Account may be suspended or terminated if you violate these Terms</li>
+                <li>If you abuse system resources</li>
+                <li>If you host prohibited content</li>
             </ul>
             <p>Termination decisions are final.</p>
         </div>
@@ -231,9 +239,9 @@ footer { width:100%; text-align:center; font-size:0.85rem; color:#8b9cff; opacit
 
     <!-- 13. Sign up -->
     <div class="tos-rule">
-        <h2>13. Sign up <span class="arrow">&#9660;</span></h2>
+        <h2>13. Sign Up <span class="arrow">&#9660;</span></h2>
         <div class="content">
-            <p>By Signing up on our website, you agree to follow these rules.</p>
+            <p>By signing up on our website, you agree to follow all rules and Terms of Service.</p>
         </div>
     </div>
 
@@ -249,9 +257,11 @@ rules.forEach(h => {
         const arrow = h.querySelector('.arrow');
         if(content.style.maxHeight){
             content.style.maxHeight = null;
+            content.classList.remove('show');
             arrow.style.transform = 'rotate(0deg)';
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('show');
             arrow.style.transform = 'rotate(-180deg)';
         }
     });
